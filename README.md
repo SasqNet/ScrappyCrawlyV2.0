@@ -26,7 +26,7 @@ ScrappyCrawly is a Python-based advanced web scraping tool that can scrape data 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/scrappycrawly.git
+   https://github.com/SasqNet/ScrappyCrawlyV2.0.git)
    cd scrappycrawly
    ```
 
