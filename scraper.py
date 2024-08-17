@@ -1,3 +1,4 @@
+import os
 import requests
 from bs4 import BeautifulSoup
 import gc
@@ -13,11 +14,19 @@ from utils import is_valid_url, normalize_url, flash_paypal_button
 from robots import load_robots_txt, can_fetch_url
 from tkinter import filedialog, messagebox
 import re
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+# Path to your ChromeDriver
+CHROME_DRIVER_PATH = 'C:\chromedriver.exe'  # Update this with the actual path
 
 # Regular expressions for emails and phone numbers
 EMAIL_REGEX = re.compile(r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+')
 PHONE_REGEX = re.compile(r'\+?\(?\d{1,4}\)?[\d\s.-]{5,}')
-
 
 stop_scan_flag = threading.Event()
 
@@ -32,21 +41,36 @@ def check_anti_scraping(url):
     except requests.exceptions.RequestException as e:
         return True, f"Request failed with exception: {e}"
 
-
 def scrape_page(url, tags, classes, attribute, rp, search_emails_var, search_phones_var, scrape_images_var):
     if stop_scan_flag.is_set() or (rp and not can_fetch_url(rp, url)):
         return set()  # Return a set instead of a list
 
+    # Use Selenium to handle JavaScript-rendered content
+    driver = None
     try:
-        time.sleep(RATE_LIMIT)  # Dynamic rate limiting
-        response = requests.get(url, headers=HEADERS, timeout=10)
-        response.raise_for_status()
-    except requests.exceptions.RequestException as e:
-        logging.error(f"Failed to retrieve {url}: {e}")
-        return set()  # Return an empty set on failure
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")  # Run in headless mode (no UI)
+        chrome_options.add_argument("--disable-gpu")
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+        
+        service = ChromeService(executable_path=CHROME_DRIVER_PATH)
+        driver = webdriver.Chrome(service=service, options=chrome_options)
+        driver.get(url)
+
+        # Wait until the page is fully loaded
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
+        
+        html_content = driver.page_source
+    except Exception as e:
+        logging.error(f"Failed to retrieve {url} with Selenium: {e}")
+        return set()
+    finally:
+        if driver:
+            driver.quit()
 
     try:
-        soup = BeautifulSoup(response.content, 'html.parser')
+        soup = BeautifulSoup(html_content, 'html.parser')
         data = set()  # Use a set to collect unique results
 
         # Extracting emails and phone numbers if requested
@@ -56,20 +80,14 @@ def scrape_page(url, tags, classes, attribute, rp, search_emails_var, search_pho
                 data.add((url, email))
 
         if search_phones_var.get() == 1:
-            print("Searching for phone numbers...")  # Debugging statement
-            # Extract phone numbers from the href attributes
             for a_tag in soup.find_all('a', href=True):
                 href = a_tag['href']
                 if href.startswith('tel:'):
-                    # Extract the phone number from the tel: href
                     phone_number = href.replace('tel:', '').strip()
-                    print(f"Found phone number in href: {phone_number}")  # Debugging statement
                     data.add((url, phone_number))
-
-            # Additionally, look for phone numbers in the text as before
+            
             phone_numbers = PHONE_REGEX.findall(soup.get_text())
             for phone in phone_numbers:
-                print(f"Found phone number in text: {phone}")  # Debugging statement
                 data.add((url, phone))
 
         # Extracting specified tags and attributes
@@ -104,11 +122,7 @@ def scrape_page(url, tags, classes, attribute, rp, search_emails_var, search_pho
         return data
 
     finally:
-        response.close()
-        del response, soup
-        gc.collect()  # Trigger garbage collection
-
-
+        gc.collect()
 
 def get_internal_links(url, soup, base_domain):
     links = set()
@@ -167,8 +181,8 @@ def display_data(data, tree):
         messagebox.showwarning("No Data", "No data found with the specified parameters.")
         return
 
-    df = pd.DataFrame(data, columns=["URL", "Content"])  # Ensure DataFrame is correctly structured
-    df = df.drop_duplicates()  # Ensure only unique results are displayed
+    df = pd.DataFrame(data, columns=["URL", "Content"])
+    df = df.drop_duplicates()
     max_content_width = max(df['Content'].apply(len)) * 10 if not df.empty else 100
     tree.column("Content", width=max_content_width)
 
@@ -232,7 +246,6 @@ def _scrape_data_thread(url_entry, tags_combobox, classes_combobox, attribute_ch
     flash_paypal_button(donate_button)
 
     progress_bar['value'] = 0
-
 
 def export_data(export_format, url_entry, tags_combobox, classes_combobox, attribute_choice, crawl_option, crawl_links_var, scrape_images_var, load_robots_var, search_emails_var, search_phones_var, tree):
     df = scrape_data_for_export(url_entry, tags_combobox, classes_combobox, attribute_choice, crawl_option, crawl_links_var, scrape_images_var, load_robots_var, search_emails_var, search_phones_var)

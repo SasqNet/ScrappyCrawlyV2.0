@@ -301,3 +301,40 @@
 2024-08-17 12:45:01,498 ERROR Failed to retrieve https://www.sasqnet.com/design/portfolio_detail/assets/img/portfolio/single-project/project-1/project-1-2.jpg: 404 Client Error: Not Found for url: https://www.sasqnet.com/design/portfolio_detail/assets/img/portfolio/single-project/project-1/project-1-2.jpg
 2024-08-17 12:45:02,137 ERROR Failed to retrieve https://www.sasqnet.com/design/portfolio_detail/sasqnet.com: 404 Client Error: Not Found for url: https://www.sasqnet.com/design/portfolio_detail/sasqnet.com
 2024-08-17 12:45:02,448 ERROR Failed to retrieve https://www.sasqnet.com/members/index.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/members/index.html
+2024-08-17 14:33:15,763 ERROR Failed to retrieve https://www.sasqnet.com with Selenium: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+2024-08-17 14:33:27,013 ERROR Failed to retrieve https://www.sasqnet.com with Selenium: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+2024-08-17 14:36:24,406 ERROR Failed to retrieve https://www.sasqnet.com/sasqnet/solutions.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/sasqnet/solutions.html
+2024-08-17 14:36:24,709 ERROR Failed to retrieve https://www.sasqnet.com/sasqnet/www.sasqnet.com: 404 Client Error: Not Found for url: https://www.sasqnet.com/sasqnet/www.sasqnet.com
+2024-08-17 14:36:25,019 ERROR Failed to retrieve https://www.sasqnet.com/sasqnet/privecy.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/sasqnet/privecy.html
+2024-08-17 14:36:25,344 ERROR Failed to retrieve https://www.sasqnet.com/sasqnet/contact.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/sasqnet/contact.html
+2024-08-17 14:36:26,184 ERROR Failed to retrieve https://www.sasqnet.com/sasqnet/terms-condition.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/sasqnet/terms-condition.html
+2024-08-17 14:36:26,524 ERROR Failed to retrieve https://www.sasqnet.com/contact.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/contact.html
+2024-08-17 14:36:27,324 ERROR Failed to retrieve https://www.sasqnet.com/privecy.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/privecy.html
+2024-08-17 14:36:28,024 ERROR Failed to retrieve https://www.sasqnet.com/sasqnet/index.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/sasqnet/index.html
+2024-08-17 14:36:29,984 ERROR Failed to retrieve https://www.sasqnet.com/design/portfolio_detail/assets/img/portfolio/single-project/project-1/project-1-3.jpg: 404 Client Error: Not Found for url: https://www.sasqnet.com/design/portfolio_detail/assets/img/portfolio/single-project/project-1/project-1-3.jpg
+2024-08-17 14:36:30,685 ERROR Failed to retrieve https://www.sasqnet.com/design/portfolio_detail/assets/img/portfolio/single-project/project-1/project-1-4.jpg: 404 Client Error: Not Found for url: https://www.sasqnet.com/design/portfolio_detail/assets/img/portfolio/single-project/project-1/project-1-4.jpg
+2024-08-17 14:36:31,760 ERROR Failed to retrieve https://www.sasqnet.com/design/portfolio_detail/assets/img/portfolio/single-project/project-1/project-1-2.jpg: 404 Client Error: Not Found for url: https://www.sasqnet.com/design/portfolio_detail/assets/img/portfolio/single-project/project-1/project-1-2.jpg
+2024-08-17 14:36:32,117 ERROR Failed to retrieve https://www.sasqnet.com/sasqnet/case.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/sasqnet/case.html
+2024-08-17 14:36:32,416 ERROR Failed to retrieve https://www.sasqnet.com/info@sasqnet.com: 404 Client Error: Not Found for url: https://www.sasqnet.com/info@sasqnet.com
+2024-08-17 14:36:33,587 ERROR Failed to retrieve https://www.sasqnet.com/members/case.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/members/case.html
+2024-08-17 14:36:33,940 ERROR Failed to retrieve https://www.sasqnet.com/members/blog.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/members/blog.html
+2024-08-17 14:36:34,254 ERROR Failed to retrieve https://www.sasqnet.com/design/portfolio_detail/sasqnet.com: 404 Client Error: Not Found for url: https://www.sasqnet.com/design/portfolio_detail/sasqnet.com
+2024-08-17 14:36:34,566 ERROR Failed to retrieve https://www.sasqnet.com/members/www.sasqnet.com: 404 Client Error: Not Found for url: https://www.sasqnet.com/members/www.sasqnet.com
+2024-08-17 14:36:36,487 ERROR Failed to retrieve https://www.sasqnet.com/terms-condition.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/terms-condition.html
+2024-08-17 14:36:36,811 ERROR Failed to retrieve https://www.sasqnet.com/sasqnet/blog.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/sasqnet/blog.html
+2024-08-17 14:36:37,125 ERROR Failed to retrieve https://www.sasqnet.com/case.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/case.html
+2024-08-17 14:36:37,445 ERROR Failed to retrieve https://www.sasqnet.com/blog.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/blog.html
+2024-08-17 14:36:38,618 ERROR Failed to retrieve https://www.sasqnet.com/www.sasqnet.com: 404 Client Error: Not Found for url: https://www.sasqnet.com/www.sasqnet.com
+2024-08-17 14:36:40,162 ERROR Failed to retrieve https://www.sasqnet.com/members/terms-condition.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/members/terms-condition.html
+2024-08-17 14:36:40,491 ERROR Failed to retrieve https://www.sasqnet.com/solutions.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/solutions.html
+2024-08-17 14:36:41,641 ERROR Failed to retrieve https://www.sasqnet.com/sasqnet.com: 404 Client Error: Not Found for url: https://www.sasqnet.com/sasqnet.com
+2024-08-17 14:36:41,970 ERROR Failed to retrieve https://www.sasqnet.com/index.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/index.html
+2024-08-17 14:36:42,283 ERROR Failed to retrieve https://www.sasqnet.com/design/sasqnet.com: 404 Client Error: Not Found for url: https://www.sasqnet.com/design/sasqnet.com
+2024-08-17 14:36:43,004 ERROR Failed to retrieve https://www.sasqnet.com/members/contact.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/members/contact.html
+2024-08-17 14:36:43,308 ERROR Failed to retrieve https://www.sasqnet.com/members/solutions.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/members/solutions.html
+2024-08-17 14:36:43,616 ERROR Failed to retrieve https://www.sasqnet.com/members/privecy.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/members/privecy.html
+2024-08-17 14:36:43,927 ERROR Failed to retrieve https://www.sasqnet.com/members/index.html: 404 Client Error: Not Found for url: https://www.sasqnet.com/members/index.html
+2024-08-17 14:43:44,257 ERROR Failed to retrieve https://www.sasqnet.com with Selenium: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
